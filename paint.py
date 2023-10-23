@@ -38,7 +38,14 @@ def square(start, end):
 
 def circle(start, end):
     """Draw circle from start to end."""
-    pass  # TODO
+    up()    # Sube la pluma.
+    goto(start.x, start.y)  # Inicia el cursor en el primer punto en el que se dio click.
+    down()     # Baja la pluma.
+    begin_fill()
+    for count in range(90):     # Dibuja un circulo de 90 lados.
+        forward((end.x - start.x)/15)   # Avanza 1/15 veces la distancia entre el punto inicial y el final.
+        left(4)     # Gira 4 grados a la izquierda.
+    end_fill()
 
 
 def rectangle(start, end):
