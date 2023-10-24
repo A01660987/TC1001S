@@ -14,6 +14,7 @@ from turtle import *
 
 from freegames import path
 
+taps = 0
 car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
@@ -44,6 +45,13 @@ def xy(count):
 
 
 def tap(x, y):
+    global taps
+    taps += 1
+    print("Número de taps:", taps)
+    if True in hide:
+        print("No se han destapado todos los cuadros")
+    else:
+        print("¡Se han destapado todos los cuadros!")
     """Update mark and hidden tiles based on tap."""
     spot = index(x, y)
     mark = state['mark']
