@@ -72,9 +72,16 @@ def move():
 
     for target in targets:
         if not inside(target):
-            return
+            reset()
 
     ontimer(move, 50)
+
+def reset():
+    global ball, speed, targets
+    ball = vector(-200, -200)
+    speed = vector(0, 0)
+    targets = []
+    move()
 
 
 setup(420, 420, 370, 0)
