@@ -17,12 +17,23 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+colors = ['blue', 'green', 'orange', 'purple', 'yellow']
 
+
+def pickColors():       # función para elegir los colores de la serpiente y la comida
+    snakeColor = colors[randrange(0, len(colors))]
+    foodColor = colors[randrange(0, len(colors))]
+    while snakeColor == foodColor:                      # la serpiente y la comida no pueden ser del mismo color
+        foodColor = colors[randrange(0, len(colors))]
+    return snakeColor, foodColor
+
+  
 def move_food():
     """Move food to a random position."""
     food.x = food.x + random.randrange(-1, 1) * 10
     food.y = food.y + random.randrange(-1, 1) * 10
     ontimer(move_food, 3000)
+
 
 def change(x, y):
     """Change snake direction."""
@@ -57,13 +68,14 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, snakeColor)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, foodColor)
     update()
     ontimer(move, 100)
 
 setup(420, 420, 370, 0)
+snakeColor, foodColor = pickColors()
 hideturtle()
 tracer(False)
 listen()
