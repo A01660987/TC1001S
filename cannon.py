@@ -74,9 +74,16 @@ def move():
 
     for target in targets:
         if not inside(target):
-            return
+            reset()     # se resetea el juego en lugar de terminarlo
 
     ontimer(move, 50)
+
+def reset():
+    global ball, speed, targets     # se regresan las variables a su estado inicial
+    ball = vector(-200, -200)
+    speed = vector(0, 0)
+    targets = []
+    move()
 
 
 setup(420, 420, 370, 0)
