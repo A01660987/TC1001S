@@ -18,7 +18,7 @@ snake = [vector(10, 0)]
 aim = vector(0, -10)
 colors = ['blue', 'green', 'orange', 'purple', 'yellow']
 
-def pickColors():       #   función para elegir los colores de la serpiente y la comida
+def pickColors():       # función para elegir los colores de la serpiente y la comida
     snakeColor = colors[randrange(0, len(colors))]
     foodColor = colors[randrange(0, len(colors))]
     while snakeColor == foodColor:                      # la serpiente y la comida no pueden ser del mismo color
