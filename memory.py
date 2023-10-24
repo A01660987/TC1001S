@@ -11,12 +11,14 @@ Exercises:
 
 from random import *
 from turtle import *
+import string
 
 from freegames import path
 
 taps = 0
 car = path('car.gif')
-tiles = list(range(32)) * 2
+letters = [x for x in string.ascii_letters]     # crea una lista con todas las letras del abecedario
+tiles = [letter for letter in letters[:32]] * 2 # crea una lista con 32 letras repetidas 2 veces
 state = {'mark': None}
 hide = [True] * 64
 
@@ -81,7 +83,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        goto(x + 12, y)     # centrar la letra en el cuadrado
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
