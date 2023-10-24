@@ -58,15 +58,15 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, snakeColor)
+        square(body.x, body.y, 9, snakeColor)   # se dibuja la serpiente con el color elegido
 
-    square(food.x, food.y, 9, foodColor)
+    square(food.x, food.y, 9, foodColor)    # se dibuja la comida con el color elegido
     update()
     ontimer(move, 100)
 
 
 setup(420, 420, 370, 0)
-snakeColor, foodColor = pickColors()
+snakeColor, foodColor = pickColors()    # se eligen los colores de la serpiente y la comida
 hideturtle()
 tracer(False)
 listen()
