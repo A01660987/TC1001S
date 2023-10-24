@@ -140,7 +140,18 @@ def move():
                 vector(0, 5),
                 vector(0, -5),
             ]
-            plan = choice(options)
+            plans = []
+            distX = pacman.x - point.x
+            distY = pacman.y - point.y
+            if distX > 0:
+                plans.append(options[0])
+            else:
+                plans.append(options[1])
+            if distY > 0:
+                plans.append(options[2])
+            else:
+                plans.append(options[3])
+            plan = choice(plans)
             course.x = plan.x
             course.y = plan.y
 
