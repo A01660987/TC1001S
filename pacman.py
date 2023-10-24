@@ -140,7 +140,18 @@ def move():
                 vector(0, 5),
                 vector(0, -5),
             ]
-            plan = choice(options)
+            plans = []
+            distX = pacman.x - point.x      # se calcula la distancia entre pacman y el fantasma
+            distY = pacman.y - point.y
+            if distX > 0:                   # 0: derecha, 1: izquierda, 2: arriba, 3: abajo
+                plans.append(options[0])
+            else:
+                plans.append(options[1])
+            if distY > 0:
+                plans.append(options[2])
+            else:
+                plans.append(options[3])
+            plan = choice(plans)            # se elige un plan al azar
             course.x = plan.x
             course.y = plan.y
 
