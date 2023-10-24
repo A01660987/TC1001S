@@ -10,6 +10,7 @@ Exercises
 
 from random import randrange
 from turtle import *
+import random
 
 from freegames import square, vector
 
@@ -17,6 +18,11 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+def move_food():
+    """Move food to a random position."""
+    food.x = food.x + random.randrange(-1, 1) * 10
+    food.y = food.y + random.randrange(-1, 1) * 10
+    ontimer(move_food, 3000)
 
 def change(x, y):
     """Change snake direction."""
@@ -57,7 +63,6 @@ def move():
     update()
     ontimer(move, 100)
 
-
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
@@ -67,4 +72,5 @@ onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
 move()
+move_food()
 done()
